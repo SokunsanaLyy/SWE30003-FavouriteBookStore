@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Register — Favourite Books{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-md-6">
+<div class="card p-4">
+  <h3 class="mb-4"><i class="bi bi-person-plus"></i> Create Account</h3>
+  <form method="post" action="/register" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">First Name <span class="text-danger">*</span></label>
+        <input type="text" name="first_name" class="form-control" value="{{ form.get('first_name','') }}" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Last Name <span class="text-danger">*</span></label>
+        <input type="text" name="last_name" class="form-control" value="{{ form.get('last_name','') }}" required>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Email Address <span class="text-danger">*</span></label>
+        <input type="email" name="email" class="form-control" value="{{ form.get('email','') }}" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Password <span class="text-danger">*</span></label>
+        <input type="password" name="password" class="form-control" required>
+        <small class="text-muted">Min 8 chars, uppercase, lowercase, digit</small>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Confirm Password <span class="text-danger">*</span></label>
+        <input type="password" name="confirm_password" class="form-control" required>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" name="phone" class="form-control" value="{{ form.get('phone','') }}">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Shipping Address</label>
+        <textarea name="address" class="form-control" rows="2">{{ form.get('address','') }}</textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+      </div>
+    </div>
+  </form>
+  <hr><p class="text-center mb-0">Already have an account? <a href="/login">Log in</a></p>
+</div>
+</div></div>
+{% endblock %}

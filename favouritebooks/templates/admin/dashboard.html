@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — Favourite Books{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2><i class="bi bi-speedometer2"></i> Admin Dashboard</h2>
+  <a href="/admin/books/add" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add New Book</a>
+</div>
+<div class="row g-3 mb-4">
+  <div class="col-md-3"><div class="card p-3 text-center"><h4>{{ books|length }}</h4><small class="text-muted">Total Books</small></div></div>
+  <div class="col-md-3"><div class="card p-3 text-center"><h4>{{ books|selectattr('is_available','equalto',True)|list|length }}</h4><small class="text-muted">Available</small></div></div>
+  <div class="col-md-3"><a href="/admin/orders" class="card p-3 text-center text-decoration-none"><h4><i class="bi bi-bag"></i></h4><small class="text-muted">View Orders</small></a></div>
+  <div class="col-md-3"><a href="/admin/reports" class="card p-3 text-center text-decoration-none"><h4><i class="bi bi-bar-chart"></i></h4><small class="text-muted">Sales Reports</small></a></div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="mb-3">Book Catalogue Management</h5>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-dark"><tr>
+          <th>Title</th><th>Author</th><th>ISBN</th><th>Genre</th>
+          <th>Price</th><th>Stock</th><th>Status</th><th>Actions</th>
+        </tr></thead>
+        <tbody>
+          {% for book in books %}
+          <tr class="{% if not book.is_available %}table-secondary text-muted{% endif %}">
+            <td><strong>{{ book.title }}</strong></td>
+            <td>{{ book.author }}</td>
+            <td><code class="small">{{ book.isbn }}</code></td>
+            <td>{{ book.genre }}</td>
+            <td>${{ "%.2f"|format(book.price) }}</td>
+            <td>
+              <span class="badge {% if book.stock_quantity > 5 %}bg-success{% elif book.stock_quantity > 0 %}bg-warning text-dark{% else %}bg-danger{% endif %}">
+                {{ book.stock_quantity }}
+              </span>
+            </td>
+            <td>
+              {% if book.is_available %}
+                <span class="badge bg-success">Active</span>
+              {% else %}
+                <span class="badge bg-secondary">Inactive</span>
+              {% endif %}
+            </td>
+            <td>
+              <a href="/admin/books/edit/{{ book.book_id }}" class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></a>
+              {% if book.is_available %}
+                <form method="post" action="/admin/books/remove/{{ book.book_id }}" class="d-inline"
+                      onsubmit="return confirm('Remove this book from catalogue?')">
+                  <button class="btn btn-sm btn-outline-danger"><i class="bi bi-eye-slash"></i></button>
+                </form>
+              {% else %}
+                <form method="post" action="/admin/books/restore/{{ book.book_id }}" class="d-inline">
+                  <button class="btn btn-sm btn-outline-success"><i class="bi bi-eye"></i></button>
+                </form>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

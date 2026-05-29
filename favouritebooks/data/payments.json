@@ -1,0 +1,11 @@
+[
+  {
+    "payment_id": "bba98638-2076-4637-8ec2-16701138db9f",
+    "order_id": "73ae1f1d-39bd-46f3-b5ae-b42016fe25b5",
+    "amount": 18.69,
+    "method": "CARD",
+    "status": "SUCCESS",
+    "transaction_ref": "TXN-1F9F63703C",
+    "processed_at": "2026-05-29T16:30:56.961811"
+  }
+]

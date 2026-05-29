@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login — Favourite Books{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-md-5">
+<div class="card p-4">
+  <h3 class="mb-4"><i class="bi bi-box-arrow-in-right"></i> Login</h3>
+  <form method="post" action="/login">
+    <div class="mb-3">
+      <label class="form-label">Email Address <span class="text-danger">*</span></label>
+      <input type="email" name="email" class="form-control" required autofocus>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password <span class="text-danger">*</span></label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <hr>
+  <p class="text-center mb-1">Don't have an account? <a href="/register">Register here</a></p>
+  <p class="text-center small text-muted mb-0">Admin: admin@favouritebooks.com / Admin@1234</p>
+</div>
+</div></div>
+{% endblock %}

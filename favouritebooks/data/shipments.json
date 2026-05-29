@@ -1,0 +1,11 @@
+[
+  {
+    "shipment_id": "4d9b6f5c-d1ba-4e6c-88c5-af5bfa973457",
+    "order_id": "73ae1f1d-39bd-46f3-b5ae-b42016fe25b5",
+    "delivery_address": "406 La Trobe St",
+    "shipping_method": "STANDARD",
+    "status": "PACKED",
+    "tracking_number": "FB-53E646A4",
+    "estimated_delivery": "2026-06-03"
+  }
+]

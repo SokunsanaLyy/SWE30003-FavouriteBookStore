@@ -1,0 +1,98 @@
+[
+  {
+    "book_id": "book-001",
+    "isbn": "9780743273565",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": 18.99,
+    "genre": "Fiction",
+    "description": "A story of wealth, love, and the American Dream set in the 1920s.",
+    "stock_quantity": 12,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.729634"
+  },
+  {
+    "book_id": "book-002",
+    "isbn": "9780061096525",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "price": 17.99,
+    "genre": "Fiction",
+    "description": "A profound novel about racial injustice and moral growth.",
+    "stock_quantity": 8,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.729851"
+  },
+  {
+    "book_id": "book-003",
+    "isbn": "9780451524935",
+    "title": "1984",
+    "author": "George Orwell",
+    "price": 16.99,
+    "genre": "Dystopian",
+    "description": "A chilling vision of a totalitarian society under constant surveillance.",
+    "stock_quantity": 14,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.730022"
+  },
+  {
+    "book_id": "book-004",
+    "isbn": "9780316769174",
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "price": 15.99,
+    "genre": "Fiction",
+    "description": "The story of teenage alienation narrated by Holden Caulfield.",
+    "stock_quantity": 5,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.730184"
+  },
+  {
+    "book_id": "book-005",
+    "isbn": "9780060850524",
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "price": 17.5,
+    "genre": "Dystopian",
+    "description": "A futuristic world where society is controlled through pleasure.",
+    "stock_quantity": 9,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.730346"
+  },
+  {
+    "book_id": "book-006",
+    "isbn": "9780143105428",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "price": 14.99,
+    "genre": "Romance",
+    "description": "A witty and romantic novel following Elizabeth Bennet and Mr. Darcy.",
+    "stock_quantity": 20,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.730546"
+  },
+  {
+    "book_id": "book-007",
+    "isbn": "9780385490818",
+    "title": "The Handmaid's Tale",
+    "author": "Margaret Atwood",
+    "price": 19.99,
+    "genre": "Dystopian",
+    "description": "A dark tale of a theocratic dystopia from a handmaid's perspective.",
+    "stock_quantity": 7,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.730862"
+  },
+  {
+    "book_id": "book-008",
+    "isbn": "9780618640157",
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "price": 34.99,
+    "genre": "Fantasy",
+    "description": "The epic fantasy trilogy following Frodo's quest to destroy the One Ring.",
+    "stock_quantity": 3,
+    "is_available": true,
+    "created_at": "2026-05-29T06:22:47.731032"
+  }
+]

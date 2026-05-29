@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}My Account — Favourite Books{% endblock %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-person-circle"></i> My Account</h2>
+<div class="row">
+  <div class="col-md-5">
+    <div class="card p-4 mb-4">
+      <h5>Profile Details</h5><hr>
+      <form method="post" action="/account/update">
+        <div class="row g-3">
+          <div class="col-6">
+            <label class="form-label">First Name <span class="text-danger">*</span></label>
+            <input type="text" name="first_name" class="form-control" value="{{ customer.first_name if customer else '' }}" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Last Name <span class="text-danger">*</span></label>
+            <input type="text" name="last_name" class="form-control" value="{{ customer.last_name if customer else '' }}" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" value="{{ session.get('email','') }}" disabled>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Phone</label>
+            <input type="text" name="phone" class="form-control" value="{{ customer.phone if customer else '' }}">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Shipping Address</label>
+            <textarea name="address" class="form-control" rows="2">{{ customer.shipping_address if customer else '' }}</textarea>
+          </div>
+          <div class="col-12"><button type="submit" class="btn btn-primary w-100">Save Changes</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="card p-4">
+      <h5>Order History</h5><hr>
+      {% if orders %}
+        {% for order in orders %}
+        <div class="border rounded p-3 mb-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <code class="small">{{ order.order_id[:12] }}…</code>
+            <span class="badge {% if order.status == 'PAID' %}bg-success{% else %}bg-secondary{% endif %}">{{ order.status }}</span>
+          </div>
+          {% for item in order.items %}
+            <div class="d-flex justify-content-between small text-muted">
+              <span>{{ item.book_title }} × {{ item.quantity }}</span>
+              <span>${{ "%.2f"|format(item.line_total) }}</span>
+            </div>
+          {% endfor %}
+          <hr class="my-2">
+          <div class="d-flex justify-content-between">
+            <small class="text-muted">{{ order.created_at[:10] }}</small>
+            <strong>Total: ${{ "%.2f"|format(order.total_amount) }}</strong>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p class="text-muted text-center py-3">No orders yet. <a href="/">Start shopping!</a></p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

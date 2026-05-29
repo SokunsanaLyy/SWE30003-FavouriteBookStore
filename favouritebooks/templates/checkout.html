@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Checkout — Favourite Books{% endblock %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-bag-check"></i> Checkout</h2>
+<div class="row">
+  <div class="col-md-7">
+    <div class="card p-4">
+      <h5>Delivery Details</h5>
+      <form method="post" action="/checkout">
+        <div class="mb-3">
+          <label class="form-label">Delivery Address <span class="text-danger">*</span></label>
+          <textarea name="delivery_address" class="form-control" rows="3" required
+                    placeholder="Enter your full delivery address">{{ address }}</textarea>
+          <small class="text-muted">Must not be empty.</small>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="bi bi-arrow-right"></i> Proceed to Payment</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card p-4">
+      <h5>Order Summary</h5><hr>
+      {% for item in cart.items %}
+        <div class="d-flex justify-content-between small mb-1">
+          <span>{{ item.book_title }} × {{ item.quantity }}</span>
+          <span>${{ "%.2f"|format(item.get_subtotal()) }}</span>
+        </div>
+      {% endfor %}
+      <hr>
+      <div class="d-flex justify-content-between fw-bold">
+        <span>Total (inc. GST)</span>
+        <span>${{ "%.2f"|format(cart.get_total_amount() * 1.10) }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

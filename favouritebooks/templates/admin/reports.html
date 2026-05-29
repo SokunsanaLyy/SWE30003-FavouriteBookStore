@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Sales Reports — Admin{% endblock %}
+{% block content %}
+<h2 class="mb-4"><i class="bi bi-bar-chart-line"></i> Sales Reports</h2>
+<div class="card p-4 mb-4">
+  <form method="post" class="row g-3 align-items-end">
+    <div class="col-md-4">
+      <label class="form-label">Report Period <span class="text-danger">*</span></label>
+      <select name="period" class="form-select">
+        {% for p in [('DAILY','Today'),('WEEKLY','Last 7 Days'),('MONTHLY','Last 30 Days'),('ANNUAL','Last 365 Days'),('YTD','Year to Date')] %}
+          <option value="{{ p[0] }}" {% if p[0] == period %}selected{% endif %}>{{ p[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3"><button type="submit" class="btn btn-primary w-100"><i class="bi bi-graph-up"></i> Generate Report</button></div>
+  </form>
+</div>
+
+{% if report %}
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card p-4 text-center border-success">
+      <h3 class="text-success">${{ "%.2f"|format(report.total_revenue) }}</h3>
+      <p class="text-muted mb-0">Total Revenue</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-4 text-center border-primary">
+      <h3 class="text-primary">{{ report.order_count }}</h3>
+      <p class="text-muted mb-0">Orders Completed</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-4 text-center border-info">
+      <h3 class="text-info">{{ report.top_books|length }}</h3>
+      <p class="text-muted mb-0">Books Sold (types)</p>
+    </div>
+  </div>
+</div>
+
+{% if report.top_books %}
+<div class="card">
+  <div class="card-body">
+    <h5>Top Selling Books</h5>
+    <table class="table table-hover">
+      <thead class="table-dark"><tr><th>#</th><th>Title</th><th>Units Sold</th><th>Revenue</th></tr></thead>
+      <tbody>
+        {% for b in report.top_books %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ b.title }}</td>
+          <td>{{ b.units_sold }}</td>
+          <td>${{ "%.2f"|format(b.revenue) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% else %}
+<div class="alert alert-info">No sales data available for this period.</div>
+{% endif %}
+{% endif %}
+<a href="/admin" class="btn btn-outline-secondary mt-3"><i class="bi bi-arrow-left"></i> Back to Dashboard</a>
+{% endblock %}

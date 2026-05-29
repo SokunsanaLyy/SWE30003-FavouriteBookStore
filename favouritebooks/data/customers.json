@@ -1,0 +1,16 @@
+[
+  {
+    "customer_id": "c1eeb299-0cb9-46b1-940c-309b6b2db81e",
+    "first_name": "John",
+    "last_name": "Smith",
+    "phone": "0400000000",
+    "shipping_address": "123 Test St"
+  },
+  {
+    "customer_id": "a5eeced1-7cf2-4b65-b4e4-a4c5fc6dbb2e",
+    "first_name": "Demo",
+    "last_name": "Acc",
+    "phone": "0400000000",
+    "shipping_address": "406 La Trobe St"
+  }
+]

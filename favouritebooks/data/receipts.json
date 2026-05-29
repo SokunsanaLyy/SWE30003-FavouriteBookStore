@@ -1,0 +1,10 @@
+[
+  {
+    "receipt_id": "821b90bd-5de3-4a44-bd8c-c90e94051c22",
+    "order_id": "73ae1f1d-39bd-46f3-b5ae-b42016fe25b5",
+    "transaction_reference": "TXN-1F9F63703C",
+    "amount_paid": 18.69,
+    "payment_method": "CARD",
+    "issued_at": "2026-05-29T16:30:56.982717"
+  }
+]

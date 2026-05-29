@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Browse Books — Favourite Books{% endblock %}
+{% block content %}
+<h2 class="mb-3">Browse Books</h2>
+<form class="row g-2 mb-4" method="get" action="/search">
+  <div class="col-md-5">
+    <input type="text" name="q" class="form-control" placeholder="Search by title, author or ISBN" value="{{ search }}">
+  </div>
+  <div class="col-md-3">
+    <select name="genre" class="form-select">
+      <option value="">All Genres</option>
+      {% for g in genres %}
+        <option value="{{ g }}" {% if g == selected_genre %}selected{% endif %}>{{ g }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2"><button class="btn btn-primary w-100" type="submit"><i class="bi bi-search"></i> Search</button></div>
+  <div class="col-md-2"><a href="/" class="btn btn-outline-secondary w-100">Clear</a></div>
+</form>
+
+{% if books %}
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+  {% for book in books %}
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <span class="badge bg-secondary mb-2 align-self-start">{{ book.genre or 'General' }}</span>
+        <h6 class="card-title fw-bold">{{ book.title }}</h6>
+        <p class="text-muted small mb-1">{{ book.author }}</p>
+        <p class="card-text small flex-grow-1">{{ book.description[:80] }}{% if book.description|length > 80 %}…{% endif %}</p>
+        <div class="d-flex justify-content-between align-items-center mt-2">
+          <span class="fw-bold text-primary fs-5">${{ "%.2f"|format(book.price) }}</span>
+          {% if book.stock_quantity > 0 %}
+            <small class="text-success"><i class="bi bi-check-circle"></i> In stock ({{ book.stock_quantity }})</small>
+          {% else %}
+            <small class="text-danger"><i class="bi bi-x-circle"></i> Out of stock</small>
+          {% endif %}
+        </div>
+        <a href="/book/{{ book.book_id }}" class="btn btn-primary btn-sm mt-3">View Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5">
+  <i class="bi bi-search fs-1 text-muted"></i>
+  <p class="mt-3 text-muted">No books found matching your search.</p>
+  <a href="/" class="btn btn-primary">Browse All Books</a>
+</div>
+{% endif %}
+{% endblock %}
