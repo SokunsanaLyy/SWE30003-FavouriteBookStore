@@ -16,5 +16,23 @@
     "total_amount": 18.69,
     "is_paid": true,
     "issued_at": "2026-05-29T16:30:56.935200"
+  },
+  {
+    "invoice_id": "1b0cb75c-c543-4b1b-bea9-c30d273d7112",
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "subtotal": 31.98,
+    "tax_amount": 3.2,
+    "total_amount": 35.18,
+    "is_paid": false,
+    "issued_at": "2026-06-01T16:02:07.855138"
+  },
+  {
+    "invoice_id": "8006439d-7546-4e1e-af5f-385b44fce471",
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "subtotal": 31.98,
+    "tax_amount": 3.2,
+    "total_amount": 35.18,
+    "is_paid": true,
+    "issued_at": "2026-06-01T16:02:07.933822"
   }
 ]

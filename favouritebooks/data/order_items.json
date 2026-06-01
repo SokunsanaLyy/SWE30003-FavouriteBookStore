@@ -5,5 +5,19 @@
     "book_id": "book-003",
     "quantity": 1,
     "unit_price": 16.99
+  },
+  {
+    "order_item_id": "6d89a250-3744-4c0c-9b5a-95da7e5a5a15",
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "book_id": "book-003",
+    "quantity": 1,
+    "unit_price": 16.99
+  },
+  {
+    "order_item_id": "70b6a357-9839-42c7-94e5-4f377d5a36e1",
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "book_id": "book-006",
+    "quantity": 1,
+    "unit_price": 14.99
   }
 ]

@@ -6,5 +6,13 @@
     "amount_paid": 18.69,
     "payment_method": "CARD",
     "issued_at": "2026-05-29T16:30:56.982717"
+  },
+  {
+    "receipt_id": "15402f41-77fe-424b-a87e-064130e6f20f",
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "transaction_reference": "TXN-27EC1D512C",
+    "amount_paid": 35.18,
+    "payment_method": "CARD",
+    "issued_at": "2026-06-01T16:02:07.992475"
   }
 ]

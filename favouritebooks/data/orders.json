@@ -6,5 +6,13 @@
     "status": "PAID",
     "created_at": "2026-05-29T16:30:56.846066",
     "delivery_address": "406 La Trobe St"
+  },
+  {
+    "order_id": "7688f52a-802c-4e10-8179-f21d39fe926d",
+    "customer_id": "8855ab6d-36c6-4bc7-a50e-561fc1bea231",
+    "total_amount": 31.98,
+    "status": "PAID",
+    "created_at": "2026-06-01T16:02:07.784389",
+    "delivery_address": "24 Wakefield St"
   }
 ]

@@ -31,7 +31,7 @@
     "price": 16.99,
     "genre": "Dystopian",
     "description": "A chilling vision of a totalitarian society under constant surveillance.",
-    "stock_quantity": 14,
+    "stock_quantity": 13,
     "is_available": true,
     "created_at": "2026-05-29T06:22:47.730022"
   },
@@ -67,7 +67,7 @@
     "price": 14.99,
     "genre": "Romance",
     "description": "A witty and romantic novel following Elizabeth Bennet and Mr. Darcy.",
-    "stock_quantity": 20,
+    "stock_quantity": 19,
     "is_available": true,
     "created_at": "2026-05-29T06:22:47.730546"
   },
