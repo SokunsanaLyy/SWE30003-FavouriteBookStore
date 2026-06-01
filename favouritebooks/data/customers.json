@@ -12,5 +12,12 @@
     "last_name": "Acc",
     "phone": "0400000000",
     "shipping_address": "406 La Trobe St"
+  },
+  {
+    "customer_id": "8855ab6d-36c6-4bc7-a50e-561fc1bea231",
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "phone": "0400555555",
+    "shipping_address": "24 Wakefield St"
   }
 ]
